@@ -22,6 +22,8 @@ class FacePage extends Component {
             showFilter: true,
             ejeXe: 0,
             ejeYe:20,
+            landIn:63,
+            landFin:16,
         }
         this.setVideoHandler = this.setVideoHandler.bind(this);
         this.isModelLoaded = this.isModelLoaded.bind(this);
@@ -77,8 +79,8 @@ class FacePage extends Component {
         canvasElement.font = "10px Comic Sans MS";
         //canvasElement.font="30px Arial";
         canvasElement.fillStyle = "red";
-        let positionX = result.landmarks.positions[8].x,
-            positionY = result.landmarks.positions[8].y + 10,
+        let positionX = result.landmarks.positions[16].x + 70,
+            positionY = result.landmarks.positions[16].y + 10,
             gender = (result.gender) === "male" ? "Hombre" : "Mujer",
             age = "Edad: " + result.age.toFixed();
         gender = "Sexo: " + gender;
@@ -103,13 +105,13 @@ class FacePage extends Component {
         emotion = (emotion === "surprised") ? "sorprendido" : emotion;
         emotion = (emotion === "fearful") ? "temeroso" : emotion;
 
-        let positionX = result.landmarks.positions[8].x,
-            positionY = result.landmarks.positions[8].y + 10;
-        canvasElement.fillText("Emocion: " + emotion, positionX, positionY + 30);
+        let positionX = result.landmarks.positions[15].x + 70,
+            positionY = result.landmarks.positions[15].y + 10;
+        canvasElement.fillText("Emocion: " + emotion, positionX, positionY + 12);
     }
 
     addFilter(canvasElement, result) {
-        let startIndex = 0, endIndex = 16, ajustX = (this.state.ejeXe), ajustY = (this.state.ejeYe);
+        let startIndex = (this.state.landIn), endIndex = (this.state.landFin), ajustX = (this.state.ejeXe), ajustY = (this.state.ejeYe);
         let positionX1 = result.landmarks.positions[startIndex].x - ajustX,
             positionY1 = result.landmarks.positions[startIndex].y + ajustY,
             positionX2 = result.landmarks.positions[endIndex].x + ajustX,
@@ -197,7 +199,7 @@ class FacePage extends Component {
 
         let dirs = { 
         fiesta1: '/filter/afro.svg', 
-        fiesta2: '/filter/ballons.svg', 
+        fiesta2: '/filter/balloons.svg', 
         fiesta3: '/filter/cake.svg',
         fiesta4: '/filter/cheers.svg',
         fiesta5: '/filter/clown.svg',
@@ -264,21 +266,21 @@ switchFilter(e){
                     value={this.state.positionIndex}
                     onChange={(event) => { this.setState({ positionIndex: event.target.value }) }} />
 
-                <button type="button" value='fiesta1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 50, ejeYe:80 }) }}>Fiesta Afro</button>
-                <button type="button" value='fiesta2' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX:    0, ejeYe:60 }) }}>Globos</button>
-                <button type="button" value='fiesta3' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Birthday</button>
-                <button type="button" value='fiesta4' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Convivio</button>
-                <button type="button" value='fiesta5' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Clown</button>
-                <button type="button" value='fiesta6' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Disco</button>
-                <button type="button" value='fiesta7' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Patronal</button>
-                <button type="button" value='fiesta8' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Regalo</button>
-                <button type="button" value='fiesta9' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Disfraces</button>
-                <button type="button" value='fiesta10' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Parthy Mexican</button>
-                <button type="button" value='fiesta11' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Fiesta Vaquera</button>
-                <button type="button" value='fiesta12' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Infantil</button>
-                <button type="button" value='fiesta13' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Fiesta Emoji</button>
-                <button type="button" value='fiesta14' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Aniversario</button>
-                <button type="button" value='fiesta15' onClick={(event) => { this.setState({ filterName: event.target.value, ejeX: 0, ejeYe:80 }) }}>Funky</button>
+                <button type="button" value='fiesta1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 85, ejeYe:50, landIn:17, landFin:25 }) }}>Fiesta Afro</button>
+                <button type="button" value='fiesta2' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 50, ejeYe:90, landIn:7, landFin:9 }) }}>Globos</button>
+                <button type="button" value='fiesta3' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:80, landIn:0, landFin:0 }) }}>Birthday</button>
+                <button type="button" value='fiesta4' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:10, landIn:8, landFin:8 }) }}>Convivio</button>
+                <button type="button" value='fiesta5' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:80, landIn:0, landFin:0 }) }}>Clown</button>
+                <button type="button" value='fiesta6' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 55, ejeYe: - 40, landIn:25, landFin:25 }) }}>Disco</button>
+                <button type="button" value='fiesta7' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: - 10, ejeYe:- 70, landIn:17, landFin:26 }) }}>Patronal</button>
+                <button type="button" value='fiesta8' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:80, landIn:0, landFin:0 }) }}>Regalo</button>
+                <button type="button" value='fiesta9' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 15, ejeYe:-70, landIn:0, landFin:16 }) }}>Disfraces</button>
+                <button type="button" value='fiesta10' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 15, ejeYe:- 100, landIn:0, landFin:16 }) }}>Parthy Mexican</button>
+                <button type="button" value='fiesta11' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: -20, ejeYe:15, landIn:5, landFin:11 }) }}>Fiesta Vaquera</button>
+                <button type="button" value='fiesta12' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 20, ejeYe:-100, landIn:17, landFin:26 }) }}>Infantil</button>
+                <button type="button" value='fiesta13' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 85, ejeYe:50, landIn:17, landFin:25 }) }}>Fiesta Emoji</button>
+                <button type="button" value='fiesta14' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 55, ejeYe:-40, landIn:25, landFin:25 }) }}>Aniversario</button>
+                <button type="button" value='fiesta15' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 55, ejeYe:-40, landIn:25, landFin:25 }) }}>Funky</button>
 
                 <h1>{this.state.filterName}</h1>
                 <h1>{this.state.ejeX}</h1>
