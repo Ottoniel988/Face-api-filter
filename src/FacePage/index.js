@@ -8,6 +8,7 @@ import Canva from './Canva';
 import * as faceapi from 'face-api.js';
 import ScrollButton from './ScrollButton';
 
+
 class FacePage extends Component {
     constructor(props) {
         super(props);
@@ -265,8 +266,8 @@ switchFilter(e){
                     style={{ marginLeft: 1000 }}
                     value={this.state.positionIndex}
                     onChange={(event) => { this.setState({ positionIndex: event.target.value }) }} />
-
-                <button type="button" value='fiesta1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 85, ejeYe:50, landIn:17, landFin:25 }) }}>Fiesta Afro</button>
+                <br></br>
+                <button type="button" value='fiesta1' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 85, ejeYe:50, landIn:17, landFin:25 }) }}color='red'>Fiesta Afro</button>
                 <button type="button" value='fiesta2' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 50, ejeYe:90, landIn:7, landFin:9 }) }}>Globos</button>
                 <button type="button" value='fiesta3' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:80, landIn:0, landFin:0 }) }}>Birthday</button>
                 <button type="button" value='fiesta4' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 65, ejeYe:10, landIn:8, landFin:8 }) }}>Convivio</button>
@@ -282,12 +283,15 @@ switchFilter(e){
                 <button type="button" value='fiesta14' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 55, ejeYe:-40, landIn:25, landFin:25 }) }}>Aniversario</button>
                 <button type="button" value='fiesta15' onClick={(event) => { this.setState({ filterName: event.target.value, ejeXe: 55, ejeYe:-40, landIn:25, landFin:25 }) }}>Funky</button>
 
-                <h1>{this.state.filterName}</h1>
+                <h1 > Elige tu filtro favorito</h1>
+                <h3>{this.state.filterName}</h3>
                 <h1>{this.state.ejeX}</h1>
                 <h1>{this.state.ejey}</h1>
                 <ScrollButton />
             </div>
         )
+
+         
     }
 }
 
