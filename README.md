@@ -13,6 +13,8 @@ A continuación se muestra un ejemplo del uso de face-api.js
 [![Face Api](/readme_image/face-emotion.JPG)](readme_image/face-emotion.JPG)
 
 [![Face Api](/readme_image/face-api-sunglasses.JPG)](readme_image/face-filter2d.JPG)
+
+[Filtro](https://drive.google.com/open?id=1GtAKMcYJlmmID6WPK0picijswhqnQ2Qi)
  
 
 # Teconolgias usadas
